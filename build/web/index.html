@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Sistema de ayuda</title>
+</head>
+
+<body>
+    <div class="header">
+        <img class="header-img" src="IMG/UDC.png" alt="Universidad de Colima" srcset="">
+        <h1 class="header-h1">Sistema Help Desk</h1>
+    </div>
+    <div style="margin: 15px auto; padding: 10px; text-align:center; width:450px">
+        <legend class="form-legend">Reportar nueva falla</legend>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias dolorem repellendus aspernatur dolore! Dignissimos ipsam
+            accusamus commodi molestias dolor error repellendus, possimus atque aut ab labore mollitia assumenda, quisquam
+            dolorum.
+        </p>
+        <input class="form-submit" type="submit" id="bttonReportar" value="Reportar">
+    </div>
+
+    <div id="Contenedor">
+        <div class="section-left">
+            <form class="form" action="" method="post">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <legend class="form-legend">Login</legend>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="form-label" for="usuario">Usuario:</label>
+                            </td>
+                            <td>
+                                <input class="form-input" id="usuario" type="user" name="usuario" placeholder="" autocomplete="off" autofocus maxlength="25"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="form-label" for="pass">Contraseña:</label>
+                            </td>
+                            <td>
+                                <input class="form-input" id="pass" type="Password" name="pass" placeholder="" maxlength="16" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td style="text-align: left; padding: 5px 0">
+                                <input class="form-check" type="checkbox" name="recordar-pass" id="recordar-pass" style="margin: 0 0 0 10px">
+                                <label class="form-label" for="recordar-pass" style="font-size: 18px; font-weight: 200; margin:0">Recordar usuario</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:center; padding: 20px 10px">
+                                <input class="form-submit" type="submit" value="Inicial sesión">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:center">
+                                <a class="form-link" href="http://">
+                                    ¿Olvidó su nombre de usuario o contraseña?
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div class="section-right">
+            <form class="form" action="" method="post">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <legend class="form-legend">Seguimiento</legend>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="form-label" for="usuario">Código:</label>
+                            </td>
+                            <td>
+                                <input class="form-input" id="usuario" type="user" name="usuario" placeholder="1234567" autocomplete="off" autofocus maxlength="25"
+                                    required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:center; padding: 20px 10px">
+                                <input class="form-submit" type="submit" value="Validar">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:center">
+                                <a class="form-link" href="http://">
+                                    ¿Olvidó su código de referencia?
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <footer>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="index.js"></script>
+</body>
+</html>
