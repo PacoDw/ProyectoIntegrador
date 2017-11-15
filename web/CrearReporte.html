@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>reporte</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="CSS/style_reporte_page.css">
+  <link rel="stylesheet" href="CSS/style_header.css">
+  <link rel="stylesheet" href="CSS/style_button.css">
+  <link rel="stylesheet" href="CSS/style_link.css">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <img class="header-img" src="IMG/UDC.png" alt="Universidad de Colima" srcset="">
+    <h1 class="header-h1">Sistema Help Desk</h1>
+  </header>
+  <section class="section-principal-reporte" style="border: none">
+    <form class="form-reporte" action="" method="post" enctype="" >
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">
+              <legend class="form-legend">Nuevo reporte</legend>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <label class="form-label" for="nombre">Nombres:</label>
+            </td>
+            <td>
+              <input class="form-input-reporte" id="nombre" type="user" name="nombre" placeholder="" autocomplete="off" autofocus maxlength="25"
+                required>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="form-label" for="apellido">Apellidos:</label>
+            </td>
+            <td>
+              <input class="form-input-reporte" id="apellido" type="user" name="apellido" placeholder="" autocomplete="off" autofocus maxlength="25"
+                required>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <label class="form-label" for="email_contacto">E-mail de<br>contacto:</label>                
+              </td>
+              <td>
+                <input class="form-input-reporte" id="email_contacto" type="email" name="email_contacto" placeholder="" maxlength="25" required>                
+              </td>
+            </tr>
+          <tr>
+            <td>
+              <label class="form-label" for="descripcion">Descripción:</label>
+            </td>
+            <td>
+              <textarea class="form-input-reporte" name="descripcion" id="descripcion" cols="20" rows="10" placeholder="" maxlength="250" style="height:150px; margin-bottom:0"
+                required></textarea>
+            </td>
+          </tr>
+          <tr>
+                    <td>
+                    </td>
+                    <td style="text-align: left; padding: 5px 0">
+                      <li>
+                          <input class="form-radio" type="radio" name="radio" id="radio_agregar" value="agregar" style="margin: 0 0 0 10px">
+                          <label class="form-label" for="radio_agregar">Agregar este reporte a tu cuenta.<br></label>
+                      </li>
+                      <li>
+                          <input class="form-radio" type="radio" name="radio" id="radio_crear" value="crear" style="margin: 0 0 0 10px">
+                          <label class="form-label" for="radio_crear" >Crear una nueva cuenta.<br></label>
+                      </li>
+                      <li>
+                          <input class="form-radio" type="radio" name="radio" id="radio_temp" value="temp" checked style="margin: 0 0 0 10px">                      
+                          <label class="form-label" for="radio_temp">Solo hacer el reporte temporalmente<br> hasta que termine.</label>
+                      </li>
+                      
+                    </td>
+                  </tr>
+                  <tr class="tr_login">
+                      <td>
+                        <label class="form-label" for="email_cuenta">E-mail:</label>                
+                      </td>
+                      <td>
+                        <input class="form-input-reporte" id="email_cuenta" type="email" name="email_cuenta" placeholder="" maxlength="25" >                
+                      </td>
+                    </tr>
+                    <tr class="tr_login">
+                      <td>
+                        <label class="form-label" for="pass">Contraseña:</label>
+                      </td>
+                      <td>
+                        <input class="form-input-reporte" id="pass" type="Password" name="pass" placeholder="" maxlength="16" >
+                      </td>
+                    </tr>
+                      <tr class="tr_login">
+                        <td>
+                          <label class="form-label" for="pass_repeat">Repetir<br>contraseña:</label>
+                        </td>
+                        <td>
+                          <input class="form-input-reporte" id="pass_repeat" type="Password" name="pass_repeat" placeholder="" maxlength="16" >
+                        </td>
+                      </tr>
+
+          <tr>
+            <td colspan="2" style="text-align:center; padding: 20px">
+              <input class="form-submit" type="submit" value="Registrar">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align:center">
+              <a class="form-link" href="http://">
+                ¿Olvidó su nombre de usuario o contraseña?
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </section>
+  <script src="JS/reporte.js"></script>
+
+</body>
+
+</html>

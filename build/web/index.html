@@ -6,30 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="JS/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style_index_page.css">
+    <link rel="stylesheet" href="CSS/style_header.css">
+    <link rel="stylesheet" href="CSS/style_footer.css">    
+    <link rel="stylesheet" href="CSS/style_button.css">   
+    <link rel="stylesheet" href="CSS/style_link.css">
+    
     <title>Sistema de ayuda</title>
 </head>
 
 <body>
     <div class="header">
-        <img class="header-img" src="IMG/UDC.png" alt="Universidad de Colima" srcset="">
+        <img class="header-img" src="IMG/UDC.png" alt="Universidad de Colima">
         <h1 class="header-h1">Sistema Help Desk</h1>
     </div>
-    <div style="margin: 15px auto; padding: 10px; text-align:center; width:450px">
-        <legend class="form-legend">Reportar nueva falla</legend>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias dolorem repellendus aspernatur dolore! Dignissimos ipsam
-            accusamus commodi molestias dolor error repellendus, possimus atque aut ab labore mollitia assumenda, quisquam
-            dolorum.
-        </p>
-        <input class="form-submit" type="submit" id="bttonReportar" value="Reportar">
-    </div>
-
     <div id="Contenedor">
         <div class="section-left">
-            <form class="form" action="" method="post">
+            <form class="form" action="Login" method="post" id="formLogin">
                 <table>
                     <thead>
                         <tr>
@@ -44,16 +39,16 @@
                                 <label class="form-label" for="usuario">Usuario:</label>
                             </td>
                             <td>
-                                <input class="form-input" id="usuario" type="user" name="usuario" placeholder="" autocomplete="off" autofocus maxlength="25"
+                                <input class="form-input" id="usuario" type="text" name="usuario" placeholder="" autocomplete="off" autofocus maxlength="25"
                                     required>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label class="form-label" for="pass">Contraseña:</label>
+                                <label class="form-label" for="password">Contraseña:</label>
                             </td>
                             <td>
-                                <input class="form-input" id="pass" type="Password" name="pass" placeholder="" maxlength="16" required>
+                                <input class="form-input" id="password" type="Password" name="password" placeholder="" maxlength="16" required>
                             </td>
                         </tr>
                         <tr>
@@ -67,7 +62,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align:center; padding: 20px 10px">
-                                <input class="form-submit" type="submit" value="Inicial sesión">
+                                <input class="form-submit" type="submit" id="bttonLogin" value="Inicial sesión">
                             </td>
                         </tr>
                         <tr>
@@ -94,10 +89,10 @@
                     <tbody>
                         <tr>
                             <td>
-                                <label class="form-label" for="usuario">Código:</label>
+                                <label class="form-label" for="codigo_referencia">Código:</label>
                             </td>
                             <td>
-                                <input class="form-input" id="usuario" type="user" name="usuario" placeholder="1234567" autocomplete="off" autofocus maxlength="25"
+                                <input class="form-input" id="codigo_referencia" type="text" name="codigo_referencia" placeholder="1234567" autocomplete="off" autofocus maxlength="25"
                                     required>
                             </td>
                         </tr>
@@ -109,7 +104,7 @@
                         <tr>
                             <td colspan="2" style="text-align:center">
                                 <a class="form-link" href="http://">
-                                    ¿Olvidó su código de referencia?
+                                    ¿Olvidó su código de ticket?
                                 </a>
                             </td>
                         </tr>
@@ -117,10 +112,10 @@
                 </table>
             </form>
         </div>
-        <footer>
-        </footer>
     </div>
+    <footer>
+    </footer>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="index.js"></script>
+    <script src="JS/login.js"></script>
 </body>
 </html>

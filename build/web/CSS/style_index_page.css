@@ -1,34 +1,3 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    margin: 0;
-}
-* {
-    box-sizing: border-box;
-}
-
-.header{
-    width: 100%;
-    margin: 0 0 1.5rem 0;
-    padding: .5rem;
-    color: white;
-    background-color: #055524;
-    border-bottom: 1px solid #3B829A;
-    z-index: 1;
-}
-.header-img{
-    /*position: relative;*/
-    width: 271px;
-    margin: 0 35px 0 1rem;
-    vertical-align: middle;
-}
-.header-h1{display: inline;}
-#div_Reportar{
-    margin: 15px auto; 
-    padding: 10px;
-    text-align:center; 
-    width:450px
-}
 
 /* For desktop: */
 .section-left{
@@ -55,7 +24,7 @@ body{
 /*Contenedor Principal*/
 #Contenedor{
     width: 95%;
-    border-top: 1px solid rgb(206, 203, 203);
+    /*border-top: 1px solid rgb(206, 203, 203);*/
     margin: 0 3rem;
 }
 #Contenedor::after {
@@ -71,7 +40,7 @@ body{
 	padding: 10px;
 	margin: 30px auto;
     border-radius: 4px;
-    
+    box-shadow: 0px 0px 19px 0px rgba(50, 50, 50, 0.26);
 }
 .form-fieldset{
     width: 380px;
@@ -105,16 +74,6 @@ body{
     text-align: center;
 }
 
-.form-link{
-    color: #007ACC;
-    margin: 0;
-    font-size: 1.4rem;
-    text-decoration-line: none;
-}
-.form-link:hover{
-    color: rgb(2, 105, 173);
-}
-
 /*TABLA DENTRO DEL FORM*/
 table{
     overflow-x: auto;
@@ -134,29 +93,6 @@ td{
     font-size: 2rem;
     /*padding	: .3em 0;*/
     font-weight: 500;
-}
-
-/*BTTON INICIAL SESION*/
-.form-submit{
-    width: 95%;
-    height: 40px;
-    margin: 5px;
-    font-size: 2.2rem;
-    background-color: #5da2d3;
-    cursor: pointer;
-    color: white;
-    border: none;
-    vertical-align: middle;
-}
-.form-submit:hover{
-    background-color: #367aaa;
-    width: 100%;
-    height: 50px;
-    margin: 0 auto;
-    font-size: 2.3rem;
-}
-.form-submit:active{
-    background-color: #2c6a94;
 }
 
 /* For mobile phones: */

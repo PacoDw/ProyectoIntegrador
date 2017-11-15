@@ -1,0 +1,83 @@
+/*SECCION PRINCPAL*/
+.section-principal-reporte{}
+
+.form-legend{
+    font-size: 4rem;
+	font-weight: normal;
+    color: black;
+    margin: 5px 0 15px 0;
+}
+
+/*FORM reporte*/
+.form-reporte {
+    background-color: white;
+    width: 550px;
+    padding: 10px;
+    margin: 30px auto;
+    border-radius: 4px;
+}
+
+/*INPUTS reporte*/
+.form-input-reporte {
+    width: 350px;
+    margin: 10px 10px;
+    padding: 5px;
+    background-color: white;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    color: black;
+    border: 1px solid #BDD5DD;
+}
+
+td {
+    /* border: 1px solid black; */
+    /* text-align: center; */
+    text-align: left;
+    /*font-size: 2rem;
+     padding: .3em 0; 
+    font-weight: 500;*/
+}
+.tr_login{
+    display: none;
+}
+
+.form-label{
+    font-size: 18px; 
+    font-weight: 200; 
+    margin:0 0 0 5px; 
+    vertical-align: middle;
+}
+li{
+    list-style-type: none;
+    margin: 15px 0;
+}
+/*Para movil*/
+@media only screen and (max-width: 620px){
+     td  {
+        width: 50%;
+        text-align: left;
+    }
+}
+@media only screen and (max-width: 510px){
+ .form-input-reporte {
+        width: 300px;
+    }
+}
+@media only screen and (max-width: 620px){
+    .form-reporte {
+           width: 90%;
+       }
+   }
+
+   @media only screen and (max-width: 462px){
+    .form-reporte, header {
+        margin: 0 auto;
+        padding: 0;
+       }
+   }
+   @media only screen and (max-width: 462px){
+    .form-input-reporte {
+        width: 200px;
+        margin-right: 0;
+       }
+   }

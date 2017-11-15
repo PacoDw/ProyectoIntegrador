@@ -1,0 +1,36 @@
+body{
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background-color: #F4F4F4;
+}
+* {
+    box-sizing: border-box;
+}
+
+.header{
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+    padding: .5rem;
+    color: rgb(231, 231, 231);
+    background-color: #3A5266;
+    border-bottom: 1px solid #3B829A;
+    z-index: 1;
+    
+    box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);}
+.header-img{
+    /*position: relative;*/
+    width: 202px;
+    margin: 0 35px 0 1rem;
+    vertical-align: middle;
+}
+.header-h1{
+    display: inline;
+    font-family: -webkit-body;
+}
+#div_Reportar{
+    margin: 15px auto; 
+    padding: 10px;
+    text-align:center; 
+    width:450px
+}

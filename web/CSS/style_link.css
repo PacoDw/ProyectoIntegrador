@@ -1,0 +1,9 @@
+.form-link{
+    color: #007ACC;
+    margin: 0;
+    font-size: 1.4rem;
+    text-decoration-line: none;
+}
+.form-link:hover{
+    color: rgb(2, 105, 173);
+}
