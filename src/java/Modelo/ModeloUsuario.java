@@ -9,6 +9,7 @@ import java.sql.*;
  */
 public class ModeloUsuario extends Conexion
 {
+
     //--------------------------------------------------------------------------
     //METHOD CREAR USUARIO
     public boolean crearUsuario(Usuario u)
@@ -33,9 +34,10 @@ public class ModeloUsuario extends Conexion
             pst.setString(10, u.getGrupoEspecialidad());
             pst.setString(11, u.getEspecialidad());
 
-
             if (pst.executeUpdate() == 1)
+            {
                 flat = true;
+            }
         }
         catch (Exception e)
         {
@@ -46,10 +48,14 @@ public class ModeloUsuario extends Conexion
             try
             {
                 if (getConnection() != null)
+                {
                     getConnection().close();
+                }
 
                 if (pst != null)
+                {
                     pst.close();
+                }
             }
             catch (Exception e)
             {
@@ -58,7 +64,7 @@ public class ModeloUsuario extends Conexion
         }
         return flat;
     }
-    
+
     //--------------------------------------------------------------------------
     //METHOD AUTENTICAR USUARIO POR LOGIN
     public boolean autenticarLogin(Usuario u)
@@ -66,21 +72,23 @@ public class ModeloUsuario extends Conexion
         boolean flag = false;
         PreparedStatement pst = null;
         ResultSet rs = null;
-        
+
         try
         {
             String sql = "call autenticarLogin(?,?)";
             pst = getConnection().prepareStatement(sql);
-            
+
             pst.setString(1, u.getUsername());
             pst.setString(2, u.getPassword()); //Falta encryptar
-            
+
             rs = pst.executeQuery();
-            
-            if(rs.absolute(1))
+
+            if (rs.absolute(1))
+            {
                 flag = true;
+            }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             System.err.println(e.getMessage());
         }
@@ -88,20 +96,45 @@ public class ModeloUsuario extends Conexion
         {
             try
             {
-                if(pst != null)
+                if (pst != null)
+                {
                     pst.close();
-                
-                if(getConnection() != null)
+                }
+
+                if (getConnection() != null)
+                {
                     getConnection().close();
-                
-                if(rs != null)
+                }
+
+                if (rs != null)
+                {
                     rs.close();
+                }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 System.err.println(e.getMessage());
             }
         }
         return flag;
     }
+
+//    public static void main(String[] args)
+//    {
+//
+//        System.out.println("Ejecutanto proyecto");
+//
+//        Usuario user = new Usuario("PacoDw", "koo");
+//        ModeloUsuario mu = new ModeloUsuario();
+//
+//        if (mu.autenticarLogin(user))
+//        {
+//            System.out.println("Es correcto el login");
+//        }
+//        else
+//        {
+//            System.out.println("Es incorrecto el login");
+//        }
+//
+//    }
 }
