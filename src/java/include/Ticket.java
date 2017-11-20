@@ -21,8 +21,11 @@ public class Ticket
     private String usuario;
 
     //--------------------------------------------------------------------------
-    //CONSTRUCTOR
+    //CONSTRUCTOR EMPTY
     public Ticket(){}
+    
+    //--------------------------------------------------------------------------
+    //CONSTRUCTOR WITHOUT ID
     public Ticket(  String nombre_ticket, String descripcion, String estado, 
                     String solucion, String fecha_inicio, String fecha_aprox,
                     String fecha_cierre, String comentarios, String grupo_especialista,
@@ -30,6 +33,27 @@ public class Ticket
                  )
     {
         this.id_ticket = "";
+        this.nombre_ticket = nombre_ticket; 
+        this.descripcion = descripcion; 
+        this.estado = estado; 
+        this.solucion = solucion; 
+        this.fecha_inicio = fecha_inicio; 
+        this.fecha_aprox = fecha_aprox; 
+        this.fecha_cierre = fecha_cierre; 
+        this.comentarios = comentarios; 
+        this.grupo_especialista = grupo_especialista; 
+        this.usuario = usuario; 
+    }
+    
+    //--------------------------------------------------------------------------
+    //CONSTRUCTOR WITH ID
+     public Ticket( String id_ticket, String nombre_ticket, String descripcion, String estado, 
+                    String solucion, String fecha_inicio, String fecha_aprox,
+                    String fecha_cierre, String comentarios, String grupo_especialista,
+                    String usuario
+                 )
+    {
+        this.id_ticket = id_ticket;
         this.nombre_ticket = nombre_ticket; 
         this.descripcion = descripcion; 
         this.estado = estado; 

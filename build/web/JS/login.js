@@ -7,7 +7,7 @@
         $.post("Login", data, function(res, estado, jqXHR){
            if(res === "1")
            {
-               alert("Bienvenido\nPrecione aceptar para ser redireccionado al panel principal...");
+               alert("Bienvenido");
                setTimeout(function(){
                    window.location = "PanelAdministracion.jsp";
                }, 300);

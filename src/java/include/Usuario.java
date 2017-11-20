@@ -18,6 +18,7 @@ public class Usuario
     private String rol;
     private String grupoEspecialidad;
     private String especialidad;
+    private String num_tickets;
 
     //--------------------------------------------------------------------------
     //CONSTRUCTOR
@@ -223,5 +224,21 @@ public class Usuario
     public void setEspecialidad(String especialidad)
     {
         this.especialidad = especialidad;
+    }
+    
+     /**
+     * @return the num_tickets
+     */
+    public String getNum_tickets()
+    {
+        return num_tickets;
+    }
+
+    /**
+     * @param num_tickets the num_tickets to set
+     */
+    public void setNum_tickets(String num_tickets)
+    {
+        this.num_tickets = num_tickets;
     }
 }

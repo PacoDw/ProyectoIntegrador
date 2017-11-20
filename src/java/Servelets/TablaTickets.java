@@ -1,19 +1,21 @@
 package Servelets;
 
+import Controlador.ControladorTicket;
+import com.google.gson.Gson;
+import include.Ticket;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author PacoDw
  */
-public class CerrarSesion extends HttpServlet
+public class TablaTickets extends HttpServlet
 {
 
     /**
@@ -29,14 +31,8 @@ public class CerrarSesion extends HttpServlet
             throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
-        
-        HttpSession sesion = request.getSession(true);
-        
-        String dato = request.getParameter("linkLogout");
-        sesion.removeAttribute("username");
-        
-        response.getWriter().print("Sesion Terminada");
-        //response.sendRedirect("SesionTerminada");
+     
+        //String accion = request.getParameter()
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -68,6 +64,16 @@ public class CerrarSesion extends HttpServlet
             throws ServletException, IOException
     {
         processRequest(request, response);
+        
+        ControladorTicket ct = new ControladorTicket();
+        
+        List<Ticket> ticket = ct.getAllTickets();
+        
+        String json = new Gson().toJson(ticket);
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(json);
     }
 
     /**

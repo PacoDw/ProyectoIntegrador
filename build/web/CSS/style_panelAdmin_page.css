@@ -56,3 +56,21 @@ a{
     margin: 50px 0 0 202px;
     position: absolute;
 }
+
+table {
+    overflow: scroll;    
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #bbbaba;
+    text-align: left;
+    padding: 8px;
+
+}
+.scrollit {
+    overflow:scroll;
+    height:500px;
+}
