@@ -1,6 +1,7 @@
 package Controlador;
 import Modelo.ModeloUsuario;
 import include.Usuario;
+import java.util.List;
 
 /*
  * @author PacoDw
@@ -23,5 +24,14 @@ public class ControladorUsuario
         ModeloUsuario mu = new ModeloUsuario();
 
         return mu.autenticarLogin(u);
+    }
+    
+    //--------------------------------------------------------------------------
+    //METHOD GET USUARIOS GRUPOS
+    public List<Usuario> getUsuariosGrupos(int id)
+    {
+        ModeloUsuario mu = new ModeloUsuario();
+
+        return mu.getUsuariosGrupos(id);
     }
 }

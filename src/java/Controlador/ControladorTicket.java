@@ -42,4 +42,21 @@ public class ControladorTicket
         return mt.getTicketsUsuario(username);
     }
     
+    //--------------------------------------------------------------------------
+    //METHOD DELETE TICKETS
+    public boolean deleteTicket(int id)
+    {
+        ModeloTicket mt = new ModeloTicket();
+        
+        return mt.deleteTickets(id);
+    }
+    
+    //--------------------------------------------------------------------------
+    //METHOD UPDATE TICKETS
+     public boolean updateTicket(Ticket t)
+    {
+        ModeloTicket mt = new ModeloTicket();
+        
+        return mt.updateTickets(t);
+    }
 }

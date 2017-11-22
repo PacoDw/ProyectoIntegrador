@@ -41,6 +41,7 @@ out.print("Hello, "+name+" Welcome to Profile");
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
                         <script src="JS/jquery-3.2.1.min.js"></script>
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
                         <link rel="stylesheet" href="CSS/style_panelAdmin_page.css">
                         <link rel="stylesheet" href="CSS/style_header.css">
                         <link rel="stylesheet" href="CSS/style_footer.css">
@@ -81,9 +82,85 @@ out.print("Hello, "+name+" Welcome to Profile");
                 }
             %>
                                 <!--cu.getViewUser(u)-->
-                                <h1>Panel de Administracion!</h1>
-                                <table>
-                                    <caption>Tickets</caption>
+                                <nav id="nav-crud">
+                                    <li class="nav-li"></li>
+                                    <li class="nav-li" id="bttonCrear" style="display:inline">Crear Ticket</li>
+                                    <li class="nav-li" id="bttonModificar" style="display:inline">Modificar Ticket</li>
+                                    <li class="nav-li" id="bttonEliminar" style="display:inline">Eliminar Ticket</li>
+                                </nav>
+                                
+                                <form class="form_crear" id="form_crearTicket" action="" method="post" enctype="">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">
+                                                    <legend class="form-legend">Nuevo Ticket</legend>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><label class="form-label" for="nombreTicket">Nombre del ticket:</label>
+                                                </td>
+                                                <td><input class="form-input-reporte" id="nombreTicket" type="text" name="nombreTicket" placeholder="" autocomplete="off" autofocus maxlength="25"
+                                                        required></td>
+                                            </tr>
+                                            <tr>
+                                                    <td><label class="form-label" for="descripcion">Descripción:</label></td>
+                                                    <td><textarea class="form-input-reporte" name="descripcion" id="descripcion" cols="20" rows="10" placeholder="" maxlength="1000"
+                                                            style="height:150px; margin-bottom:0" required></textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label class="form-label" for="fecha_aprox">Fecha aproximada de reparación</label></td>
+                                                <td><input class="form-input-reporte" id="fecha_aprox" type="date" name="fecha_aprox" placeholder="" maxlength="25" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label class="form-label" for="comentarios">Comentarios:</label></td>
+                                                <td><textarea class="form-input-reporte" name="comentarios" id="comentarios" cols="20" rows="10" placeholder="" maxlength="250"
+                                                        style="height:150px; margin-bottom:0" required></textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                        <label class="form-label" for="grupo_especialista">Grupo de especialidad:</label>
+                                                </td>
+                                                <td>
+                                                    <select name="grupo_especialista" id="grupo_especialista">
+                                                            <option value="" disabled selected>Seleccione una grupo...</option>
+                                                    </select>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>
+                                                        <label class="form-label" for="especialista">Especialista:</label>
+                                                    </td>
+                                                    <td>
+                                                        <select name="especialista" id="especialista">
+                                                                <option value="" disabled selected>Seleccione un especialista...</option>
+                                                                
+                                                        </select>
+                                                        
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align:center; padding: 20px"><input class="form-submit" type="submit" value="Registrar"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align:center">
+                                                    <a class="form-link" href="http://">
+                                                        ¿Olvidó su nombre de usuario o contraseña?
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+
+
+
+
+                                <table id="table_id">
+                                    <caption style="text-align:center">Tickets</caption>
                                     <thead>
                                         <th>id ticket</th>
                                         <th>Nombre ticket</th>
@@ -103,6 +180,7 @@ out.print("Hello, "+name+" Welcome to Profile");
                         </div>
                         <script src="JS/logout.js"></script>
                         <script src="JS/generarTabla.js"></script>
+                        <script src="JS/crearTicket.js"></script>
                     </body>
 
                     </html>

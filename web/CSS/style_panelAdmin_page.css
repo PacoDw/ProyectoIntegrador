@@ -57,15 +57,16 @@ a{
     position: absolute;
 }
 
+/*TABLE*/
 table {
     overflow: scroll;    
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 99%;
 }
 
 td, th {
-    border: 1px solid #bbbaba;
+    border: 1px solid #919191;
     text-align: left;
     padding: 8px;
 
@@ -73,4 +74,22 @@ td, th {
 .scrollit {
     overflow:scroll;
     height:500px;
+}
+
+tr:nth-child(even) {
+    background-color: #e7e6e6;
+}
+
+tr:hover{
+    background-color: #d4d1d1;
+    cursor: pointer;    
+}
+.selected {
+    background-color: #8f8f8f;
+}
+
+
+
+#form_crearTicket{
+    display: none;
 }

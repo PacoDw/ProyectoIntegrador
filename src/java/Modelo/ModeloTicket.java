@@ -200,7 +200,7 @@ public class ModeloTicket extends Conexion
         
         try
         {
-            String sql = "call deleteTickets(?)";
+            String sql = "call deleteTicket(?)";
             pst = getConnection().prepareStatement(sql);
             
             pst.setInt(1, id);

@@ -12,6 +12,10 @@
         <servlet-name>TablaTickets</servlet-name>
         <servlet-class>Servelets.TablaTickets</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrudTicket</servlet-name>
+        <servlet-class>Servelets.CrudTicket</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>atenticarLogin</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>TablaTickets</servlet-name>
         <url-pattern>/TablaRegistrosTickets</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrudTicket</servlet-name>
+        <url-pattern>/TicketAplication</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

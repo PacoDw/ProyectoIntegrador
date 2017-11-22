@@ -47,6 +47,9 @@ public class Usuario
         this.username = username;
         this.password = password;
     }
+    
+    public Usuario(){
+    }
 
     //--------------------------------------------------------------------------
     //METHOD GET AND SET

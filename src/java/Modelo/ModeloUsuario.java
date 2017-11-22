@@ -1,8 +1,11 @@
 package Modelo;
 
 import include.Encriptar;
+import include.GrupoEspecialista;
 import include.Usuario;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author PacoDw
@@ -117,6 +120,58 @@ public class ModeloUsuario extends Conexion
             }
         }
         return flag;
+    }
+    
+    //--------------------------------------------------------------------------
+    //METHOD GET USUARIOS GRUPOS
+    public List<Usuario> getUsuariosGrupos(int id)
+    {
+       List<Usuario> usuarios = new ArrayList<Usuario>();
+        
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        
+        try
+        {
+            String sql = "call getUsuariosGrupos(?)";
+            pst = getConnection().prepareStatement(sql);
+            
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setNombres(rs.getString(1));
+                u.setGrupoEspecialidad(rs.getString(2));
+                usuarios.add(u);
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if (getConnection() != null)
+                {
+                    getConnection().close();
+                }
+
+                if (pst != null)
+                {
+                    pst.close();
+                }
+                if(rs != null)
+                    rs.close();
+            }
+            catch (Exception e)
+            {
+                System.err.println(e.getMessage());
+            }
+        }
+        return usuarios;
     }
 
 //    public static void main(String[] args)
