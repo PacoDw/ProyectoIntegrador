@@ -9,6 +9,7 @@ import Controlador.ControladorGrupoEspecialista;
 import Controlador.ControladorTicket;
 import Controlador.ControladorUsuario;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import include.GrupoEspecialista;
 import include.Ticket;
 import include.Usuario;
@@ -45,13 +46,31 @@ public class CrudTicket extends HttpServlet
 
         ControladorTicket ct = new ControladorTicket();
 
-        if (metodo == "create")
+        if (metodo.equals("create"))
         {
+            Ticket t = new Ticket(request.getParameter("nombreTicket"), 
+                                  request.getParameter("descripcion"), 
+                                  request.getParameter("fecha_aprox"), 
+                                  request.getParameter("comentarios"), 
+                                  request.getParameter("grupo_especialista"), 
+                                  request.getParameter("especialista"));
+            
+            if(ct.crearTicket(t))
+            {
+                t = ct.getLastTicket();
+                String json = new Gson().toJson(t);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }
+            else
+                request.getParameter(null);
 
         }
-        else if (metodo == "update")
+        else if (metodo.equals("update"))
         {
-
+            
         }
         else if (metodo.equals("delete"))
         {
@@ -88,9 +107,23 @@ public class CrudTicket extends HttpServlet
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(json);
         }
-        else
+        else if(metodo.equals("getATicket"))
         {
-            response.getWriter().write("");
+            int id = Integer.parseInt(request.getParameter("optionId"));
+            
+            Ticket t = new Ticket();
+            
+            if(ct.crearTicket(t))
+            {
+                t = ct.getATicket(id);
+                String json = new Gson().toJson(t);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }
+            else
+                request.getParameter(null);        
         }
     }
 

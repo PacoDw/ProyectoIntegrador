@@ -34,32 +34,69 @@
             <li class="nav-li">Configuración</li>
         </ul>
     </nav>
+    
     <div class="div-resultado">
-        <h1>Registro!</h1>
+            <form class="form_crear" id="form_crearTicket" action="" method="post" enctype="">
+                    <table class="table-formulario">
+                        <thead>
+                            <tr>
+                                <th class="td-formulario" colspan="2">
+                                    <legend class="form-legend">Nuevo Ticket</legend>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td-formulario"><label class="form-label" for="nombreTicket" rowspan="2">Nombre del ticket:</label>
+                                    <input class="form-input-reporte" id="nombreTicket" type="text" name="nombreTicket" placeholder="" autocomplete="off" autofocus maxlength="25"
+                                    required>
+                                    <label class="form-label" for="fecha_aprox">Fecha aproximada de reparación</label>
+                                    <input class="form-input-reporte" id="fecha_aprox" type="date" name="fecha_aprox" placeholder="" maxlength="25" required>
+                                    <label class="form-label" for="especialista">Especialista:</label>
+                                    <select name="especialista" id="especialista"  class="form-input-reporte">
+                                            <option value="" disabled selected>Seleccione un especialista...</option>
+                                            
+                                    </select>
+                                    <label class="form-label" for="grupo_especialista">Grupo de especialidad:</label>
+                                    <select name="grupo_especialista" id="grupo_especialista"  class="form-input-reporte" style="margin: 0 0 30px 0">
+                                            <option value="" disabled selected>Seleccione una grupo...</option>
+                                    </select>
 
-        <table id="example" class="display">
-            <caption>Tickets</caption>
-            <thead>
-                <th>id ticket</th>
-                <th>Nombre ticket</th>
-                <th>Descripción</th>
-                <th>Estado</th>
-                <th>Solución</th>
-                <th>Fecha de inicio</th>
-                <th>Fecha aproximada</th>
-                <th>Fecha cierre</th>
-                <th>Comentarios</th>
-                <th>Areá encargada</th>
-                <th>Encargado</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
+                                </td>
+                                <td class="td-formulario">
+                                        <label class="form-label" for="descripcion">Descripción:</label>
+                                        <textarea class="form-input-reporte" name="descripcion" id="descripcion" cols="20" rows="10" placeholder="" maxlength="1000"
+                                        style="height:150px; margin: 0 0 30px 0" required></textarea>
+                                        <label class="form-label" for="comentarios">Comentarios:</label>
+                                        <textarea class="form-input-reporte" name="comentarios" id="comentarios" cols="20" rows="10" placeholder="" maxlength="250"
+                                        style="height:150px; margin: 0 0 30px 0" required></textarea>
+                                </td>
+                            <tr>
+                                <td class="td-formulario"  colspan="2" style="text-align:center; padding: 20px"><input class="form-submit" id="form-submit" type="submit" value="Registrar Ticket"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            
 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <table id="table_id">
+                        <caption style="text-align:center">Tickets</caption>
+                        <thead>
+                            <th>id ticket</th>
+                            <th>Nombre ticket</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th>Solución</th>
+                            <th>Fecha de inicio</th>
+                            <th>Fecha aproximada</th>
+                            <th>Fecha cierre</th>
+                            <th>Comentarios</th>
+                            <th>Areá encargada</th>
+                            <th>Encargado</th>
+                        </thead>
+                        <tbody id="tabla_body">
+                        </tbody>
+                    </table>
 
 
     </div>

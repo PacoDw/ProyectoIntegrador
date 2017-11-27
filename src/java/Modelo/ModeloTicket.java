@@ -12,11 +12,11 @@ import java.util.List;
  * @author PacoDw
  */
 public class ModeloTicket extends Conexion
-{
+{   
     //--------------------------------------------------------------------------
     //METHOD CREATE TICKET
     public boolean crearTicket(Ticket t)
-    {
+    {                  
         boolean flat = false;
         PreparedStatement pst = null;
 
@@ -283,13 +283,133 @@ public class ModeloTicket extends Conexion
         return flat;
     }
     
+    //--------------------------------------------------------------------------
+    //FIND TO LAST TICKET
+    public Ticket getLastTicket()
+    {   
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Ticket t = new Ticket();
+
+        try
+        {
+            String sql = "call getLastTicket()";
+            pst = getConnection().prepareStatement(sql);
+                        
+            rs = pst.executeQuery();
+            
+            while (rs.next())
+            {
+                t.setId_ticket(rs.getString(1));
+                t.setNombre_ticket(rs.getString(2));
+                t.setDescripcion(rs.getString(3));
+                t.setEstado(rs.getString(4));
+                t.setSolucion(rs.getString(5));
+                t.setFecha_inicio(rs.getString(6));
+                t.setFecha_aprox(rs.getString(7));
+                t.setFecha_cierre(rs.getString(8));
+                t.setComentarios(rs.getString(9));
+                t.setGrupo_especialista(rs.getString(10));
+                t.setUsuario(rs.getString(11));
+            }
+                
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if (getConnection() != null)
+                {
+                    getConnection().close();
+                }
+
+                if (pst != null)
+                {
+                    pst.close();
+                }
+                if(rs != null)
+                    rs.close();
+            }
+            catch (Exception e)
+            {
+                System.err.println(e.getMessage());
+            }
+        }
+        return t;
+    }
+    
+    //--------------------------------------------------------------------------
+    //GET A TICKET
+    public Ticket getATicket(int id)
+    {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Ticket t = new Ticket();
+
+        try
+        {
+            String sql = "call getATicket(?)";
+            pst = getConnection().prepareStatement(sql);
+            pst.setInt(1, id);
+                        
+            rs = pst.executeQuery();
+            
+            while (rs.next())
+            {
+                t.setId_ticket(rs.getString(1));
+                t.setNombre_ticket(rs.getString(2));
+                t.setDescripcion(rs.getString(3));
+                t.setEstado(rs.getString(4));
+                t.setSolucion(rs.getString(5));
+                t.setFecha_inicio(rs.getString(6));
+                t.setFecha_aprox(rs.getString(7));
+                t.setFecha_cierre(rs.getString(8));
+                t.setComentarios(rs.getString(9));
+                t.setGrupo_especialista(rs.getString(10));
+                t.setUsuario(rs.getString(11));
+            }
+                
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                if (getConnection() != null)
+                {
+                    getConnection().close();
+                }
+
+                if (pst != null)
+                {
+                    pst.close();
+                }
+                if(rs != null)
+                    rs.close();
+            }
+            catch (Exception e)
+            {
+                System.err.println(e.getMessage());
+            }
+        }
+        return t;
+    }
+    
     //TO MAKE TESTS WITH THIS FILE
-//    public static void main(String[] args)
-//    {
-//        System.out.println("Ejecutanto proyecto");
-//        
-//        ModeloTicket mt = new ModeloTicket();
-//        
+    public static void main(String[] args)
+    {
+        System.out.println("Ejecutanto proyecto");
+        
+        ModeloTicket mt = new ModeloTicket();
+        
+        System.out.println(mt.getLastTicket());
 ////////        
 ////////        for(Ticket i : mt.getTicketsUsuario("PacoDw"))
 ////////        {
@@ -314,5 +434,5 @@ public class ModeloTicket extends Conexion
 ////////        {
 ////////            System.out.println("No se elimino el ticket");
 ////////        }
-//    } //int main
+    } //int main
 }

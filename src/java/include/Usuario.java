@@ -7,6 +7,7 @@ public class Usuario
 {
     //--------------------------------------------------------------------------
     //ATRIBUTES
+    private String id_usuario;
     private String nombres;
     private String apellidos;
     private String username;
@@ -53,6 +54,23 @@ public class Usuario
 
     //--------------------------------------------------------------------------
     //METHOD GET AND SET
+    
+    /**
+     * @return the id_usuario
+     */
+    public String getId_usuario()
+    {
+        return id_usuario;
+    }
+
+    /**
+     * @param id_usuario the id_usuario to set
+     */
+    public void setId_usuario(String id_usuario)
+    {
+        this.id_usuario = id_usuario;
+    }
+    
     /**
      * @return the nombres
      */

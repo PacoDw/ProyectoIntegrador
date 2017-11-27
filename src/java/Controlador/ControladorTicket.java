@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.ModeloTicket;
 import include.Ticket;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class ControladorTicket
 {
     //--------------------------------------------------------------------------
     //METHOD CREAR TICKET
-    public boolean nuevoTicket(Ticket t)
+    public boolean crearTicket(Ticket t)
     {
         ModeloTicket mt = new ModeloTicket();
         
@@ -58,5 +59,23 @@ public class ControladorTicket
         ModeloTicket mt = new ModeloTicket();
         
         return mt.updateTickets(t);
+    }
+     
+     //--------------------------------------------------------------------------
+    //FIND TO LAS TICKET
+    public Ticket getLastTicket()
+    {
+        ModeloTicket mt = new ModeloTicket();
+
+        return mt.getLastTicket();
+    }
+    
+    //--------------------------------------------------------------------------
+    //GET A TICKET
+    public Ticket getATicket(int id)
+    {
+        ModeloTicket mt = new ModeloTicket();
+
+        return mt.getATicket(id);
     }
 }

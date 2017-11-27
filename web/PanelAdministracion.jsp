@@ -88,80 +88,127 @@ out.print("Hello, "+name+" Welcome to Profile");
                                     <li class="nav-li" id="bttonModificar" style="display:inline">Modificar Ticket</li>
                                     <li class="nav-li" id="bttonEliminar" style="display:inline">Eliminar Ticket</li>
                                 </nav>
-                                
+
                                 <form class="form_crear" id="form_crearTicket" action="" method="post" enctype="">
-                                    <table>
+                                    <table class="table-formulario">
                                         <thead>
                                             <tr>
-                                                <th colspan="2">
+                                                <th class="td-formulario" colspan="2">
                                                     <legend class="form-legend">Nuevo Ticket</legend>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><label class="form-label" for="nombreTicket">Nombre del ticket:</label>
-                                                </td>
-                                                <td><input class="form-input-reporte" id="nombreTicket" type="text" name="nombreTicket" placeholder="" autocomplete="off" autofocus maxlength="25"
-                                                        required></td>
-                                            </tr>
-                                            <tr>
-                                                    <td><label class="form-label" for="descripcion">Descripción:</label></td>
-                                                    <td><textarea class="form-input-reporte" name="descripcion" id="descripcion" cols="20" rows="10" placeholder="" maxlength="1000"
-                                                            style="height:150px; margin-bottom:0" required></textarea></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label class="form-label" for="fecha_aprox">Fecha aproximada de reparación</label></td>
-                                                <td><input class="form-input-reporte" id="fecha_aprox" type="date" name="fecha_aprox" placeholder="" maxlength="25" required></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label class="form-label" for="comentarios">Comentarios:</label></td>
-                                                <td><textarea class="form-input-reporte" name="comentarios" id="comentarios" cols="20" rows="10" placeholder="" maxlength="250"
-                                                        style="height:150px; margin-bottom:0" required></textarea></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                        <label class="form-label" for="grupo_especialista">Grupo de especialidad:</label>
-                                                </td>
-                                                <td>
-                                                    <select name="grupo_especialista" id="grupo_especialista">
-                                                            <option value="" disabled selected>Seleccione una grupo...</option>
+                                                <td class="td-formulario">
+                                                    <label class="form-label" for="nombreTicket" rowspan="2">Nombre del ticket:</label>
+                                                    <input class="form-input-reporte" id="nombreTicket" type="text" name="nombreTicket" placeholder="" autocomplete="off" autofocus
+                                                        maxlength="25" required>
+                                                    <label class="form-label" for="fecha_aprox">Fecha aproximada de reparación</label>
+                                                    <input class="form-input-reporte" id="fecha_aprox" type="datetime-local" name="fecha_aprox" placeholder="" maxlength="25"
+                                                        required>
+                                                    <label class="form-label" for="grupo_especialista">Área encargada:</label>
+                                                    <select name="grupo_especialista" id="grupo_especialista" class="form-input-reporte">
+                                                        <option value="" disabled selected>Seleccione una grupo...</option>
                                                     </select>
+                                                    <label class="form-label" for="especialista">Especialista:</label>
 
+                                                    <select name="especialista" id="especialista" class="form-input-reporte">
+                                                        <option value="" disabled selected>Seleccione un especialista...</option>
+
+                                                    </select>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                    <td>
-                                                        <label class="form-label" for="especialista">Especialista:</label>
-                                                    </td>
-                                                    <td>
-                                                        <select name="especialista" id="especialista">
-                                                                <option value="" disabled selected>Seleccione un especialista...</option>
-                                                                
-                                                        </select>
-                                                        
+                                                <td class="td-formulario">
+                                                    <label class="form-label" for="descripcion">Descripción:</label>
+                                                    <textarea class="form-input-reporte" name="descripcion" id="descripcion" cols="20" rows="10" placeholder="" maxlength="1000"
+                                                        style="height:150px; margin: 0 0 30px 0" required></textarea>
+                                                    <label class="form-label" for="comentarios">Comentarios:</label>
+                                                    <textarea class="form-input-reporte" name="comentarios" id="comentarios" cols="20" rows="10" placeholder="" maxlength="250"
+                                                        style="height:150px; margin: 0 0 30px 0" required></textarea>
+                                                </td>
+                                                <tr>
+                                                    <td class="td-formulario" colspan="2" style="text-align:center; padding: 20px">
+                                                        <input class="form-submit" id="bttonTicketSubmit" type="submit" value="Registrar Ticket">
                                                     </td>
                                                 </tr>
-                                            <tr>
-                                                <td colspan="2" style="text-align:center; padding: 20px"><input class="form-submit" type="submit" value="Registrar"></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" style="text-align:center">
-                                                    <a class="form-link" href="http://">
-                                                        ¿Olvidó su nombre de usuario o contraseña?
-                                                    </a>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </form>
 
+                                <form class="form_mod" id="form_modTicket" action="" method="post" enctype="">
+                                    <table class="table-formulario">
+                                        <thead>
+                                            <tr>
+                                                <th class="td-formulario" colspan="2">
+                                                    <legend class="form-legend">Modificar Ticket</legend>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="td-formulario">
+                                                    <label class="form-label" for="idTicketMod" rowspan="2">Id del ticket:</label>
+                                                    <input class="form-input-reporte" id="idTicketMod" type="text" name="idTicketMod" placeholder="" autocomplete="off" autofocus
+                                                        maxlength="25" required disabled>
 
+                                                    <label class="form-label" for="nombreTicketMod" rowspan="2">Nombre del ticket:</label>
+                                                    <input class="form-input-reporte" id="nombreTicketMod" type="text" name="nombreTicketMod" placeholder="" autocomplete="off" autofocus
+                                                        maxlength="25" required>
 
+                                                    <label class="form-label" for="especialistaMod">Estado del ticket:</label>
+                                                    <select name="especialistaMod" id="especialistaMod" class="form-input-reporte">
+                                                        <option value="" disabled selected>Seleccione un estado...</option>
+                                                        <option value="ABIERTO">Abierto</option>
+                                                        <option value="CERRADO">Cerrado</option>
+                                                    </select>
+
+                                                    <label class="form-label" for="fecha_inicioMod">Fecha de inicio de la reparación</label>
+                                                    <input class="form-input-reporte" id="fecha_inicioMod" type="datetime-local" name="fecha_inicioMod" placeholder="" maxlength="25"
+                                                        required disabled>
+
+                                                        <label class="form-label" for="fecha_aproxMod">Fecha aproximada de reparación</label>
+                                                        <input class="form-input-reporte" id="fecha_aproxMod" type="datetime-local" name="fecha_aproxMod" placeholder="" maxlength="25"
+                                                            required>
+
+                                                            <label class="form-label" for="fecha_cierreMod">Fecha de cierre de reparación</label>
+                                                            <input class="form-input-reporte" id="fecha_cierreMod" type="datetime-local" name="fecha_cierreMod" placeholder="" maxlength="25"
+                                                                required>
+                                                    
+
+                                                </td>
+                                                <td class="td-formulario">
+                                                        <label class="form-label" for="grupo_especialistaMod">Área encargada:</label>
+                                                        <select name="grupo_especialistaMod" id="grupo_especialistaMod" class="form-input-reporte" style="margin: 0 0 46px 0">
+                                                            <option value="" disabled selected>Seleccione una grupo...</option>
+                                                        </select>
+                                                        <label class="form-label" for="especialistaMod">Especialista:</label>
+                                                        <select name="especialistaMod" id="especialistaMod" class="form-input-reporte" style="margin: 0 0 46px 0">
+                                                            <option value="" disabled selected>Seleccione un especialista...</option>
+                                                        </select>
+
+                                                    <label class="form-label" for="solucionMod">Solución:</label>
+                                                    <textarea class="form-input-reporte" name="solucionMod" id="solucionMod" cols="20" rows="10" placeholder="" maxlength="1000"
+                                                        style="height:88px; margin: 0 0 30px 0" required></textarea>
+
+                                                    <label class="form-label" for="descripcionMod">Descripción:</label>
+                                                    <textarea class="form-input-reporte" name="descripcionMod" id="descripcionMod" cols="20" rows="10" placeholder="" maxlength="1000"
+                                                        style="height:88px; margin: 0 0 30px 0" required></textarea>
+                                                    <label class="form-label" for="comentariosMod">Comentarios:</label>
+                                                    <textarea class="form-input-reporte" name="comentariosMod" id="comentariosMod" cols="20" rows="10" placeholder="" maxlength="250"
+                                                        style="height:88px; margin: 0 0 30px 0" required></textarea>
+                                                </td>
+                                                <tr>
+                                                    <td class="td-formulario" colspan="2" style="text-align:center; padding: 20px">
+                                                        <input class="form-submit" id="bttonModificarSubmit" type="submit" value="Registrar Ticket">
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
 
                                 <table id="table_id">
                                     <caption style="text-align:center">Tickets</caption>
-                                    <thead>
+                                    <thead id="thead-table">
                                         <th>id ticket</th>
                                         <th>Nombre ticket</th>
                                         <th>Descripción</th>

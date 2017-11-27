@@ -1,5 +1,9 @@
 package include;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author PacoDw
@@ -26,20 +30,20 @@ public class Ticket
     
     //--------------------------------------------------------------------------
     //CONSTRUCTOR WITHOUT ID
-    public Ticket(  String nombre_ticket, String descripcion, String estado, 
-                    String solucion, String fecha_inicio, String fecha_aprox,
-                    String fecha_cierre, String comentarios, String grupo_especialista,
+    public Ticket(  String nombre_ticket, String descripcion,
+                    String fecha_aprox, String comentarios, String grupo_especialista,
                     String usuario
                  )
     {
         this.id_ticket = "";
         this.nombre_ticket = nombre_ticket; 
         this.descripcion = descripcion; 
-        this.estado = estado; 
-        this.solucion = solucion; 
-        this.fecha_inicio = fecha_inicio; 
-        this.fecha_aprox = fecha_aprox; 
-        this.fecha_cierre = fecha_cierre; 
+        this.estado = "Abierto"; 
+        this.solucion = "Sin solucion"; 
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm:ss");
+        this.fecha_inicio = sdf.format(d);
+        this.fecha_aprox = fecha_aprox;
         this.comentarios = comentarios; 
         this.grupo_especialista = grupo_especialista; 
         this.usuario = usuario; 
@@ -48,7 +52,7 @@ public class Ticket
     //--------------------------------------------------------------------------
     //CONSTRUCTOR WITH ID
      public Ticket( String id_ticket, String nombre_ticket, String descripcion, String estado, 
-                    String solucion, String fecha_inicio, String fecha_aprox,
+                    String solucion, String fecha_aprox,
                     String fecha_cierre, String comentarios, String grupo_especialista,
                     String usuario
                  )
@@ -58,13 +62,16 @@ public class Ticket
         this.descripcion = descripcion; 
         this.estado = estado; 
         this.solucion = solucion; 
-        this.fecha_inicio = fecha_inicio; 
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm:ss");
+        this.fecha_inicio = sdf.format(d);
         this.fecha_aprox = fecha_aprox; 
         this.fecha_cierre = fecha_cierre; 
         this.comentarios = comentarios; 
         this.grupo_especialista = grupo_especialista; 
         this.usuario = usuario; 
     }
+     
     
     //--------------------------------------------------------------------------
     //METHOD GET AND SET

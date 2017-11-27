@@ -141,8 +141,9 @@ public class ModeloUsuario extends Conexion
             
             while (rs.next()) {
                 Usuario u = new Usuario();
-                u.setNombres(rs.getString(1));
-                u.setGrupoEspecialidad(rs.getString(2));
+                u.setId_usuario(rs.getString(1));
+                u.setNombres(rs.getString(2));
+                u.setGrupoEspecialidad(rs.getString(3));
                 usuarios.add(u);
             }
         }
