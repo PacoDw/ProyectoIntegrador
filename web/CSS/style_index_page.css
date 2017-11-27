@@ -2,6 +2,7 @@
 /* For desktop: */
 .section-left{
     width: 50%;
+    padding: 60px 0;
     border-right: 1px solid rgb(206, 203, 203);
     float: left;
 }
@@ -10,6 +11,7 @@
 .section-right{
     width: 50%;
     float: left;
+    padding: 103px 0;
 }
 @media only screen and (max-width: 1100px) {
     /* For mobile phones: */
@@ -24,8 +26,10 @@
 /*Contenedor Principal*/
 #Contenedor{
     width: 95%;
-    /*border-top: 1px solid rgb(206, 203, 203);*/
+    /* height: 100px; */
+    /* border-top: 1px solid rgb(206, 203, 203); */
     margin: 0 3rem;
+    margin-top: 43px;
 }
 #Contenedor::after {
     content: "";

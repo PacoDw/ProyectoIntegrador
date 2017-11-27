@@ -46,6 +46,21 @@ a{
     list-style-type: none;
 }
 
+.nav-li-Top{
+   /*box-shadow: 0px 0px 20px 0px rgba(200, 226, 255, 0.73);*/
+    padding: 0px 1.55em;
+    margin: .9em 0;
+    color: rgb(2, 28, 78);
+    list-style-type: none;
+    font-weight: bold;
+    font-size: medium;
+}
+.nav-li-Top:hover{
+    color: rgb(11, 57, 143);
+    cursor: pointer;
+    text-decoration-line: none;
+}
+
 .nav-li:hover, .header-h1:hover, a:hover{
     color: white;
     cursor: pointer;
@@ -135,7 +150,7 @@ table{
     color: #8f8f8f;
     margin-bottom: 12px;
 }
-button[disabled], html input[disabled] {
+button[readonly], html input[readonly] {
     cursor: not-allowed;
     background-color: rgb(226, 226, 226);
     

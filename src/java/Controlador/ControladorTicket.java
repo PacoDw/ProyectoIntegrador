@@ -78,4 +78,13 @@ public class ControladorTicket
 
         return mt.getATicket(id);
     }
+    
+    //--------------------------------------------------------------------------
+    //GET A TICKET FULL
+    public Ticket getATicketFull(int id)
+    {
+        ModeloTicket mt = new ModeloTicket();
+
+        return mt.getATicketFull(id);
+    }
 }

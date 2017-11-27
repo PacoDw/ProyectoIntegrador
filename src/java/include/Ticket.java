@@ -44,6 +44,7 @@ public class Ticket
         SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm:ss");
         this.fecha_inicio = sdf.format(d);
         this.fecha_aprox = fecha_aprox;
+        this.fecha_cierre = "Sin Fecha";
         this.comentarios = comentarios; 
         this.grupo_especialista = grupo_especialista; 
         this.usuario = usuario; 
@@ -63,7 +64,7 @@ public class Ticket
         this.estado = estado; 
         this.solucion = solucion; 
         Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         this.fecha_inicio = sdf.format(d);
         this.fecha_aprox = fecha_aprox; 
         this.fecha_cierre = fecha_cierre; 
@@ -71,6 +72,7 @@ public class Ticket
         this.grupo_especialista = grupo_especialista; 
         this.usuario = usuario; 
     }
+     
      
     
     //--------------------------------------------------------------------------

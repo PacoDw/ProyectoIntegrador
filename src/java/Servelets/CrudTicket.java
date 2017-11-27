@@ -15,6 +15,8 @@ import include.Ticket;
 import include.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -70,7 +72,40 @@ public class CrudTicket extends HttpServlet
         }
         else if (metodo.equals("update"))
         {
+            Ticket t = new Ticket();
+            String fechaCierre = request.getParameter("fecha_cierreMod");
             
+            t.setId_ticket(request.getParameter("idTicketMod"));
+            t.setNombre_ticket(request.getParameter("nombreTicketMod"));
+            t.setDescripcion(request.getParameter("descripcionMod"));
+            t.setEstado(request.getParameter("estadoMod"));
+            t.setSolucion(request.getParameter("solucionMod"));
+            t.setFecha_inicio(request.getParameter("fecha_inicioMod").replace("T", " "));
+            t.setFecha_aprox(request.getParameter("fecha_aproxMod").replace("T", " "));
+            
+            if(fechaCierre == null || fechaCierre.equals(""))
+            {
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                t.setFecha_cierre(sdf.format(d));
+                //t.setFecha_cierre("null");
+            }
+            else
+                t.setFecha_cierre(request.getParameter("fecha_cierreMod").replace("T", " "));
+            
+            t.setComentarios(request.getParameter("comentariosMod"));
+            t.setGrupo_especialista(request.getParameter("grupo_especialistaMod"));
+            t.setUsuario(request.getParameter("especialistaMod"));
+            
+            if(ct.updateTicket(t)){
+                t = ct.getATicket(Integer.parseInt(request.getParameter("idTicketMod")));
+                String json = new Gson().toJson(t);
+
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(json);
+            }else
+                request.getParameter(null);
         }
         else if (metodo.equals("delete"))
         {
@@ -109,21 +144,16 @@ public class CrudTicket extends HttpServlet
         }
         else if(metodo.equals("getATicket"))
         {
-            int id = Integer.parseInt(request.getParameter("optionId"));
+            int id = Integer.parseInt(request.getParameter("id_ticket"));
             
-            Ticket t = new Ticket();
-            
-            if(ct.crearTicket(t))
-            {
-                t = ct.getATicket(id);
+            Ticket t = ct.getATicketFull(id);
+                
                 String json = new Gson().toJson(t);
 
                 response.setContentType("application/json");
                 response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(json);
-            }
-            else
-                request.getParameter(null);        
+       
         }
     }
 

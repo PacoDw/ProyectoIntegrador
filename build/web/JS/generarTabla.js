@@ -36,7 +36,7 @@ $(function () {
             ocultoCrear = true;
         }
 
-        crearTicket();
+        loadDataTables("#grupo_especialista", "#especialista");
     });
 
     //--------------------------------------------------------------------------
@@ -74,9 +74,25 @@ $(function () {
                 ocultarMod = false;
             }
             else {
-                let datos = { id_ticket: idTicket, metodo: "update" };
-                $.post("TicketAplication", datosMod, function (res, est, jqXHR) {
-                    console.log(datosMod);
+                loadDataTables("#grupo_especialistaMod", "#especialistaMod");
+                let datosticket = { id_ticket: idTicket, metodo: "getATicket" };
+                $.post("TicketAplication", datosticket, function (res, est, jqXHR) {
+                    loadUsers(res.grupo_especialista, "#especialistaMod");
+                        
+                    console.log("DATA: " + res);
+                    setTimeout(function(){
+                        $("#idTicketMod").val(res.id_ticket);
+                        $("#nombreTicketMod").val(res.nombre_ticket);
+                        $("#descripcionMod").val(res.descripcion);
+                        $("#estadoMod").val(res.estado);
+                        $("#solucionMod").text(res.solucion);
+                        $("#fecha_inicioMod").val(res.fecha_inicio.substring(0, res.fecha_inicio.length-2).replace(" ","T"));
+                        $("#fecha_aproxMod").val(res.fecha_aprox.substring(0, res.fecha_inicio.length-2).replace(" ","T"));
+                        $("#fecha_cierreMod").val(res.fecha_cierre);
+                        $("#comentariosMod").text(res.comentarios);
+                        $("#grupo_especialistaMod").val(res.grupo_especialista);
+                        $("#especialistaMod").val(res.usuario);
+                    }, 1000);
                 });
 
                 $("#form_modTicket").show();
@@ -112,48 +128,44 @@ $(function () {
     });
 });
 
-//--------------------------------------------------------------------------
-//METOD QUE OBTIENE EL VALUE DEL SELECTOR
-var select = document.getElementById("grupo_especialista");
-select.addEventListener("change", function () {
-    let selectedOpcion = this.options[select.selectedIndex];
-
-
-    let data = { metodo: "getUsuarios", optionId: selectedOpcion.value };
-
-    $.post("TicketAplication", data, function (res, est, jqXHR) {
-        let especialista = $("#especialista").empty();
-        $("#especialista").append($("<option value='' disabled selected>Seleccione un especialista...</option>"));
-        console.log(res);
-        $.each(res, function (i, opcion) {
-            $("#especialista").append($("<option value=" + opcion.id_usuario + ">").text(opcion.nombres));
-        });
-    });
-
-    //alert(selectedOpcion.value + " : " + selectedOpcion.text);
-});
 
 
 /*METODOS------------------------------------------------------------------ */
 
 //--------------------------------------------------------------------------
-//METODO CREAR TICKET
-function crearTicket() {
+//METODO QUE ACTUALIZA LAS TABLAS
+function loadDataTables(idGrupo, idUsuario) {
     if (idTicket !== -1) {
         let data = { metodo: "getGrupos" };
         $.post("TicketAplication", data, function (res, est, jqXHR) {
-            let grupoEspecialista = $("#grupo_especialista").empty();
-            $("#grupo_especialista").append($("<option value='' disabled selected>Seleccione una grupo...</option>"));
+            let grupoEspecialista = $(idGrupo).empty();
+            $(idGrupo).append($("<option value='' disabled selected>Seleccione una grupo...</option>"));
 
             $.each(res, function (i, opcion) {
-                $("#grupo_especialista").append($("<option value=" + opcion.id_grupo_especialista + ">").text(opcion.nombre_grupo));
+                $(idGrupo).append($("<option value=" + opcion.id_grupo_especialista + ">").text(opcion.nombre_grupo));
             });
         });
-    }
-    else {
+        var select = document.getElementById(idGrupo.substring(1));
+        select.addEventListener("change", function () {
+            let selectedOpcion = select.options[select.selectedIndex];
+            let valorId = selectedOpcion.value;
 
-        flag = false;
+            loadUsers(valorId, idUsuario);
+        });
     }
+}
+function loadUsers(valorId, idUsuario)
+{   
+        let data = { metodo: "getUsuarios", optionId:  valorId};
+    
+        $.post("TicketAplication", data, function (res, est, jqXHR) {
+            let especialista = $(idUsuario).empty();
+            $(idUsuario).append($("<option value='' disabled selected>Seleccione un especialista...</option>"));
+            $.each(res, function (i, opcion) {
+                $(idUsuario).append($("<option value=" + opcion.id_usuario + ">").text(opcion.nombres));
+            });
+        });
+        return true;
 }
 
 //--------------------------------------------------------------------------
@@ -197,11 +209,37 @@ function crearTicketSubmit() {
 function modificarTicket() {
     let flag = false;
     if (idTicket !== -1) {
-        let datos = { id_ticket: idTicket, metodo: "update" };
-        $.post("TicketAplication", datosMod, function (res, est, jqXHR) {
-            console.log(datosMod);
+        let datos = $("#form_modTicket").serialize();
+        let data = "metodo=update&" + datos;
+        console.log("Datos envio: " + data);
+
+        let opcion = confirm("Estas seguro de actualizar el ticket");
+        if (opcion) {
+        $.post("TicketAplication", data, function (res, estado, jqXHR) { //TicketAplication
+            console.log("Datos retorno: " + res);            
+            //if (estado == "success") {
+                fila.parent().remove();                
+
+                $("<tr id='btonEliminar' class='bton'>").appendTo("#tabla_body")
+                    .append($("<td id='id_ticket'>").text(res.id_ticket))
+                    .append($("<td id='nombre_ticket'>").text(res.nombre_ticket))
+                    .append($("<td id='descripcion'>").text(res.descripcion))
+                    .append($("<td id='estado'>").text(res.estado))
+                    .append($("<td id='solucion'>").text(res.solucion))
+                    .append($("<td id='fecha_inicio'>").text(res.fecha_inicio))
+                    .append($("<td id='fecha_aprox'>").text(res.fecha_aprox))
+                    .append($("<td id='fecha_cierre'>").text(res.fecha_cierre))
+                    .append($("<td id='comentarios'>").text(res.comentarios))
+                    .append($("<td id='grupo_especialista'>").text(res.grupo_especialista))
+                    .append($("<td id='usuario'>").text(res.usuario));
+
+                    alert("Se actualizo el ticket exitosamente...");
+            //}
+           // else
+            //    alert("No se pudo crear el ticket...");
         });
     }
+}
     else {
         alert("Tienes que seleccionar un registro...");
     }

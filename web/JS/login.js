@@ -8,10 +8,7 @@
            if(res === "1")
            {
                alert("Bienvenido");
-               setTimeout(function(){
-                   window.location = "PanelAdministracion.jsp";
-               }, 300);
-           }
+                   window.location = "PanelAdministracion.jsp";           }
            else
                alert("El usuario o contrasaña son incorrectas...");
         });
