@@ -14,6 +14,24 @@
         });
         e.preventDefault();
     });
+
+   /* document.getElementById("bttonValidar").addEventListener("click", function(e){
+        let valor = document.getElementById("codigo_referencia").value;
+
+        if(valor !== "" || valor !== null)
+        {
+            
+            let data = { codigo_referencia: valor};
+            
+            $.post("getTicket", data, function(res, estado, jqXHR){
+                window.location = "getTicket";           
+                console.log(data);
+                alert(data);
+            });
+        }
+        e.preventDefault();
+    });*/
+
 })();
 
 

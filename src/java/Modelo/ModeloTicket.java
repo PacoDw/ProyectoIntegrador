@@ -284,7 +284,7 @@ public class ModeloTicket extends Conexion
     }
     
     //--------------------------------------------------------------------------
-    //FIND TO LAST TICKET
+    //TO FIND LAST TICKET
     public Ticket getLastTicket()
     {   
         PreparedStatement pst = null;
@@ -412,7 +412,7 @@ public class ModeloTicket extends Conexion
 
         try
         {
-            String sql = "call getATicket(?)";
+            String sql = "call getATicketFull(?)";
             pst = getConnection().prepareStatement(sql);
             pst.setInt(1, id);
                         

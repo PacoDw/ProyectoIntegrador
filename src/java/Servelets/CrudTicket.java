@@ -146,7 +146,7 @@ public class CrudTicket extends HttpServlet
         {
             int id = Integer.parseInt(request.getParameter("id_ticket"));
             
-            Ticket t = ct.getATicketFull(id);
+            Ticket t = ct.getATicket(id);
                 
                 String json = new Gson().toJson(t);
 
